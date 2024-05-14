@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import "../globals.css";
 import Sidebar from '@/components/layout/Sidebar';
 import Header from '@/components/layout/Header';
+import { Suspense } from 'react'
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -24,7 +25,9 @@ export default function ModuleLayout({
       <Sidebar />
       <div className="flex flex-col w-full">
         <Header />
-        {children}
+        <Suspense fallback={<p>Loading feed...</p>}>
+          {children}
+        </Suspense>
       </div>
     </div>
   );

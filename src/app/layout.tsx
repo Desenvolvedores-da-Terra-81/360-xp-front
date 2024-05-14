@@ -3,6 +3,7 @@ import { Inter as FontSans } from "next/font/google";
 import { cn } from "@/lib/utils";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner"
+import { Suspense } from 'react'
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -26,7 +27,9 @@ export default function RootLayout({
           fontSans.variable,
         )}
       >
-        {children}
+        <Suspense fallback={<p>Loading feed...</p>}>
+          {children}
+        </Suspense>
         <Toaster />
       </body>
     </html>

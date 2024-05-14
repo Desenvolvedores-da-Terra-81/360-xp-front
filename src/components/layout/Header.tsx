@@ -17,7 +17,7 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
         <SheetTrigger asChild>
           <Button className="shrink-0 md:hidden" size="icon" variant="outline">
             <MenuIcon className="h-5 w-5" />
-            <span className="sr-only">Toggle navigation menu</span>
+            <span className="sr-only">Abri o menu</span>
           </Button>
         </SheetTrigger>
         <SheetContent className="flex flex-col" side="left">
@@ -44,12 +44,12 @@ const Header: React.FC<HeaderProps> = ({ className }) => {
           </Button>
         </DropdownMenuTrigger>
         <DropdownMenuContent align="end">
-          <DropdownMenuLabel>My Account</DropdownMenuLabel>
+          <DropdownMenuLabel>Minha conta</DropdownMenuLabel>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Settings</DropdownMenuItem>
-          <DropdownMenuItem>Support</DropdownMenuItem>
+          <DropdownMenuItem>Configurações</DropdownMenuItem>
+          <DropdownMenuItem>Suporte</DropdownMenuItem>
           <DropdownMenuSeparator />
-          <DropdownMenuItem>Logout</DropdownMenuItem>
+          <DropdownMenuItem>Sair</DropdownMenuItem>
         </DropdownMenuContent>
       </DropdownMenu>
     </header>
