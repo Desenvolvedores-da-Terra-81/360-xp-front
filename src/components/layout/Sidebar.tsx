@@ -1,8 +1,9 @@
-// Sidebar.tsx
-import React from 'react';
+'use client'
+import React, { useState } from 'react';
 import MenuItem from './MenuItem';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { PlanUpgrade } from "@/components/plan-upgrade";
 import { HomeIcon, ShoppingCartIcon, PackageIcon, UsersIcon, LineChartIcon } from './Icons';
 
 export interface MenuItemType {
@@ -20,8 +21,17 @@ export const menuItems: MenuItemType[] = [
   { href: "#", icon: LineChartIcon, label: "Analytics" }
 ];
 
-
 const Sidebar: React.FC = () => {
+  const [isPlanUpgradeOpen, setIsPlanUpgradeOpen] = useState(false);
+
+  const handleUpgradeClick = () => {
+    setIsPlanUpgradeOpen(true);
+  };
+
+  const handlePlanUpgradeClose = () => {
+    setIsPlanUpgradeOpen(false);
+  };
+
   return (
     <div className="hidden md:block border-r bg-muted/40 min-h-screen">
       <div className="flex flex-col gap-2 h-full max-h-screen">
@@ -44,11 +54,12 @@ const Sidebar: React.FC = () => {
               <CardDescription>Unlock all features and get unlimited access to our support team.</CardDescription>
             </CardHeader>
             <CardContent className="p-2 pt-0 md:p-4 md:pt-0">
-              <Button className="w-full" size="sm">Upgrade</Button>
+              <Button className="w-full" size="sm" onClick={handleUpgradeClick}>Upgrade</Button>
             </CardContent>
           </Card>
         </div>
       </div>
+      {isPlanUpgradeOpen && <PlanUpgrade onClose={handlePlanUpgradeClose} />}
     </div>
   );
 };

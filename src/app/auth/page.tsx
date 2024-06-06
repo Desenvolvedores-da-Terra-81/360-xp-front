@@ -43,7 +43,7 @@ export const Login: React.FC = () => {
       Cookies.set('refresh_token', signInData.session.refresh_token, { expires: 30, secure: true, sameSite: 'strict' });
 
       toast("Welcome.");
-      await router.push('/dashboard');  // Redirecionar para o Dashboard
+      router.push('/dashboard');
     } catch (error) {
       toast("Failed to sign in.");
       console.error(error);
